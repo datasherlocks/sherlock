@@ -8,7 +8,7 @@
        A cross platform CLI for Data Sherlocks
     </p>
     <h3 align="center">
-        <a href="https://datasherlocks.io/docs">Documentation</a>
+        <a href="https://datasherlocks.io/docs">Documentation</a> 
     </h3>
 </html>
 
@@ -20,7 +20,7 @@ TQ was designed as a portable and lightweight command-line interface to work wit
 
     * Shell script
         ```bash
-        $ curl -sL https://registry.datasherlocks.io/sherlock | bash
+        $ curl -sL https://registry.datasherlocks.io/sherlock |  sudo bash -s -- -b /usr/local/bin
         ```
     * Brew
         ```bash
