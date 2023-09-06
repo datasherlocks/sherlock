@@ -1,0 +1,12 @@
+pytest
+pytest-cov
+
+# gRPC dependencies
+grpcio==1.50.0
+grpcio-tools==1.50.0
+protobuf==4.21.9
+
+# Database client dependencies
+pandas
+pymysql    # For MySQL support
+psycopg2-binary
