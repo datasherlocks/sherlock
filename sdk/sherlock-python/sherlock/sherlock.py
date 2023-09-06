@@ -9,9 +9,14 @@ class Sherlock:
         self.db_config = db_config
         self.db_type = db_type
 
-    def ask(self, question: str, host: str, error: Optional[str] = None, sql: Optional[str] = None) -> str:
-        return ""
-        # Implement your ask logic here
+    def ask(self, question: str, error: Optional[str] = None, sql: Optional[str] = None) -> str:
+        request = {
+            'question': question,
+            'host': self.db_config["host"],
+            'error': error,
+            'sql': sql,
+        }
+        return  self.cloud.ask_agent(registration_data=request)
 
     def register(self, name: str) -> Dict[str, Union[int, str]]:
         self.db_client.preflight()
@@ -39,11 +44,9 @@ class Sherlock:
         }
 
 
-        # Implement your register logic here
-        # You may want to use the DatasherlockCloudClient to register the agent
-        self.cloud.register_agent(registration_data=request)
+        response = self.cloud.register_agent(registration_data=request)
         return {
-            # 'agent_id': response.agent_id,
-            # 'token': response.token,
-            # 'url': response.url
+            'agent_id': response.agent_id,
+            'token': response.token,
+            'url': response.url
         }

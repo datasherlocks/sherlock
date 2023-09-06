@@ -16,15 +16,15 @@ class DatasherlockCloudClient:
         combined_credentials = grpc.composite_channel_credentials(credentials, call_credentials)
         return grpc.secure_channel(f'{self.host}:{self.port}', combined_credentials)
 
-    def ask_agent(self, question: str, host: str, error: Optional[str] = None, sql: Optional[str] = None) -> str:
+    def ask_agent(self, registration_data: Dict[str, Union[str, List[str], bytes, None]]) -> str:
         channel = self._create_channel()
         stub = proto_grpc.AgentServiceStub(channel)
 
         request = proto.AskAgentRequest(
-            question=question,
-            host=host,
-            error=error,
-            sql=sql
+            question=registration_data['question'],
+            host=registration_data['host'],
+            error=registration_data['error'],
+            sql=registration_data['sql']
         )
 
         response = stub.Ask(request)

@@ -10,3 +10,4 @@ sherlock = Sherlock(token="", db_type="mysql", db_config={
 })
 
 sherlock.register("employees")
+sherlock.ask("List of department")
