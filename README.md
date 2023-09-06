@@ -12,11 +12,11 @@
     </h3>
 </html>
 
-TQ was designed as a portable and lightweight command-line interface to work with Textquery Cloud.
+sherlock was designed as a portable and lightweight command-line interface to work with datasherlocks Cloud.
 
 ## 🚀 Quick Start
 
-1. Install TQ with bash or shell script
+1. Install sherlock with bash or shell script
 
     * Shell script
         ```bash
