@@ -10,7 +10,7 @@
   <a href="https://forum.datasherlocks.io">Discuss</a> 
 </p>
 <p align='center'>
-  <a href="https://github.com/datapane/datapane/">
+  <a href="https://github.com/datasherlocks/datasherlocks/">
       <img src="https://img.shields.io/github/stars/datasherlocks/datasherlocks?style=social" alt="GitHub Stars" />
   </a>
 </p>
