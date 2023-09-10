@@ -1,6 +1,6 @@
-from sherlockai import Sherlock
+from datasherlock import DataSherlock
 
-sherlock = Sherlock(token="", db_type="mysql", db_config={
+sherlock = DataSherlock(token="", db_type="mysql", db_config={
     'host': "100.88.50.30",
     'database': "employees",
     'user': "root",

@@ -1,9 +1,9 @@
 import setuptools
-from sherlockai.version import Version
+from datasherlock.version import Version
 
 
-setuptools.setup(name='sherlockai',
-                 version=Version('0.0.1').number,
+setuptools.setup(name='datasherlock',
+                 version=Version('0.0.3').number,
                  description='datasherlock',
                  long_description=open('README.md').read().strip(),
                  author='datasherlock',
