@@ -25,7 +25,7 @@ Welcome to our Datasherlocks powered by Large Language Model! We are excited to 
 
 <p align="center">
   <a href="https://datasherlocks.io">
-    
+      
   </a>
 </p>
 
@@ -43,7 +43,7 @@ Welcome to our Datasherlocks powered by Large Language Model! We are excited to 
 
 Want a head start? Check out our _Datasherlocks in 1 minutes_ video:
 
-TODO: VIDEO
+[![asciicast](https://asciinema.org/a/607242.svg)](https://asciinema.org/a/607242)
 
 ## Installing Datasherlocks
 
