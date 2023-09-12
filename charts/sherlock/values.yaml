@@ -4,6 +4,7 @@
 enableTunnelService: true
 tunnelToken: ""
 password: ""
+api_key: ""
 replicaCount: 1
 
 image:
