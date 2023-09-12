@@ -1,9 +1,8 @@
 import setuptools
-from datasherlock.version import Version
 
 
 setuptools.setup(name='datasherlock',
-                 version=Version('0.0.3').number,
+                 version="0.0.4",
                  description='datasherlock',
                  long_description=open('README.md').read().strip(),
                  author='datasherlock',
