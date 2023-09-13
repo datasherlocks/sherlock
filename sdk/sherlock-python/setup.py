@@ -1,8 +1,9 @@
 import setuptools
 
+__version__ = "0.0.0+develop"
 
 setuptools.setup(name='datasherlock',
-                 version="0.0.4",
+                 version=__version__,
                  description='datasherlock',
                  long_description=open('README.md').read().strip(),
                  author='datasherlock',
