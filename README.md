@@ -64,7 +64,7 @@ $ brew install datasherlocks/homebrew-tap/sherlock
 sherlock also works well in hosted Jupyter environments such as Colab or Binder, where you can install as follows:
 
 ```
-!pip3 install --quiet sherlock
+pip3 install --quiet datasherlock
 ```
 
 # Next Steps
