@@ -351,9 +351,9 @@ End of functions from https://github.com/client9/shlib
 ------------------------------------------------------------------------
 EOF
 
-PROJECT_NAME="datasherlocks"
+PROJECT_NAME="sherlock"
 OWNER=datasherlocks
-REPO="datasherlocks"
+REPO="sherlock"
 BINARY=sherlock
 FORMAT=tar.gz
 OS=$(uname_os)
