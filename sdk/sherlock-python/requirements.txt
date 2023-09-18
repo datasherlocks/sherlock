@@ -11,3 +11,4 @@ pandas
 pymysql    # For MySQL support
 psycopg2-binary
 mysql-connector-python
+google-cloud-bigquery

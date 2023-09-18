@@ -19,7 +19,8 @@ setuptools.setup(name='datasherlock',
                     "pandas",
                     "pymysql",
                     "psycopg2-binary",
-                    "mysql-connector-python"
+                    "mysql-connector-python",
+                    "google-cloud-bigquery"  
                  ],
                  zip_safe=False,
                  keywords='datasherlocks',

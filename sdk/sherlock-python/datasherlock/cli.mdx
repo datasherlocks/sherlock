@@ -1,0 +1,72 @@
+---
+title: "CLI"
+description: "CLI"
+label: "CLI"
+position: 2
+---
+
+##  Installation
+The most convenient way to interact with our API is by using our cross-platform CLI:
+
+```bash
+curl -sL https://registry.datasherlock.io/sherlock |  sudo bash -s -- -b /usr/local/bin
+```
+
+Alternatively, if you prefer using Homebrew:
+
+```bash
+brew install datasherlock/homebrew-tap/sherlock
+```
+
+## API Token Setup
+
+Before using the Datasherlocks CLI, you need to set up your API token. Visit the Organization [settings page](https://datasherlock.io/settings/organization/tokens) to create an API token for your client. Once you have created the token, set it as a new environment variable:
+
+```bash
+export DS_API_TOKEN=*******
+```
+
+You are now ready to use the Datasherlocks CLI to manage your agents and interact with the Datasherlocks platform.
+
+## Commands
+
+The Datasherlocks CLI provides several commands to manage and query agents, as well as perform other tasks. Here are the available commands:
+
+### register
+
+Use the register command to register a Datasherlocks agent with the platform. This command requires a configuration file and agent name.
+
+Example:
+```bash
+sherlock register --config /path/to/config.yaml --name acme
+```
+
+### ask
+
+With the ask command, you can send a question to a Datasherlocks agent running on a specific host. You need to specify the question, agent ID, and optionally, the output format (JSON or table).
+
+Example:
+```bash
+sherlock ask --question "How many users are active?" --id 123 --output table
+```
+
+### list
+
+The list command retrieves a list of Datasherlocks agents registered with the platform. It provides details such as agent ID, name, host, database, username, type, and remote URL.
+
+Example:
+```bash
+sherlock list
+```
+
+### serve 
+
+The serve command starts the Datasherlocks agent using the provided configuration file. It initializes the agent and allows it to communicate with the Datasherlocks platform. Please note that the serve command is intended for local testing only and is not recommended for production use.
+
+Example (Local Testing):
+
+```bash
+sherlock serve --config /path/to/config.yaml
+```
+
+NOTE: For production deployments, we recommend following our AWS/Kubernetes deployment guide, which provides instructions for deploying the agent in a production environment.
