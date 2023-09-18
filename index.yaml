@@ -23,9 +23,9 @@ entries:
   sherlock:
   - apiVersion: v2
     appVersion: v0.0.1
-    created: "2023-09-13T17:28:44.52366618Z"
+    created: "2023-09-18T13:01:34.905405341Z"
     description: Agent Helm chart for datasherlocks sherlock
-    digest: cf7b34aa2252c68b4a2ba174a5d471f8423ce530b456b35d910ac2133fd42538
+    digest: ccdf6f2f9a4ba7b07d5318f1c8bf5b9f16d266627ae831c48be6f30c23d223c0
     home: https://datasherlocks.io
     keywords:
     - datasherlocks
@@ -38,6 +38,6 @@ entries:
     - https://github.com/datasherlocks/datasherlocks
     type: application
     urls:
-    - https://datasherlocks.github.io/datasherlocks/sherlock-v0.0.1.tgz
+    - https://datasherlocks.github.io/sherlock/sherlock-v0.0.1.tgz
     version: v0.0.1
-generated: "2023-09-13T17:28:44.522295762Z"
+generated: "2023-09-18T13:01:34.90450223Z"
