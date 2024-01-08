@@ -34,7 +34,7 @@ jobs:
         with:
           token: "${{ secrets.GH_TOKEN }}"
           linting: off
-          charts_dir: charts-tmp
+          charts_dir: charts
 
       - name: Login to GitHub Container Registry
         run: |
