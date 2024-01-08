@@ -29,11 +29,6 @@ jobs:
       - name: Set version
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
 
-      - name: Create charts tmp directory
-        run: |
-          mkdir charts-tmp
-          cp -a charts/sherlock charts-tmp/sherlock
-
       - name: Run chart-releaser
         uses: stefanprodan/helm-gh-pages@0ad2bb377311d61ac04ad9eb6f252fb68e207260 #v1.7.0
         with:
@@ -49,10 +44,10 @@ jobs:
         run: |
           for dir in `find charts-tmp -maxdepth 1 -mindepth 1 -type d -print`; do
             chart=${dir##*/}
-            sed -i "s/v0.0.1-develop/version: \"${RELEASE_VERSION}\"/g" "charts-tmp/${chart}/Chart.yaml"
+            sed -i "s/v0.0.1-develop/version: \"${RELEASE_VERSION}\"/g" "charts/${chart}/Chart.yaml"
             echo "Found chart: ${chart}"
-            helm package charts-tmp/${chart} --destination .dist
-            helm push .dist/${chart}-*.tgz oci://ghcr.io/datasherlocks/charts |& tee .digest
+            helm package charts/${chart} --destination .dist
+            helm push .dist/${chart}-*.tgz oci://ghcr.io/datasherlocks/${chart} |& tee .digest
           done
         env:
           CR_TOKEN: "${{ secrets.GH_TOKEN }}"
