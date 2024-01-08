@@ -44,7 +44,7 @@ jobs:
         run: |
           for dir in `find charts-tmp -maxdepth 1 -mindepth 1 -type d -print`; do
             chart=${dir##*/}
-            sed -i "s/v0.0.1-develop/version: \"${RELEASE_VERSION}\"/g" "charts/${chart}/Chart.yaml"
+            sed -i "s/v0.0.1-develop/version: \"${GITHUB_REF#refs/*/}\"/g" "charts/${chart}/Chart.yaml"
             echo "Found chart: ${chart}"
             helm package charts/${chart} --destination .dist
             helm push .dist/${chart}-*.tgz oci://ghcr.io/datasherlocks/${chart} |& tee .digest
