@@ -7,7 +7,7 @@
   <a href="https://datasherlocks.io/docs">Docs</a> |
   <a href="https://buf.build/datasherlocks/cloud">API Docs</a > |
   <a href="https://buf.build/studio/datasherlocks/cloud/main?serviceDialog=open">Buf Studio</a > |
-  <a href="https://forum.datasherlocks.io">Discuss</a> 
+  <a href="https://github.com/orgs/datasherlocks/discussions">Discuss</a> 
 </p>
 <p align='center'>
   <a href="https://github.com/datasherlocks/datasherlocks/">
@@ -52,7 +52,7 @@ The best way to install Datasherlocks is through brew or curl.
 #### Curl
 
 ```
-$ curl -sL https://registry.datasherlocks.io/sherlock |  sudo bash -s -- -b /usr/local/bin
+$ curl -sL https://raw.githubusercontent.com/datasherlocks/sherlock/main/install.sh |  sudo bash -s -- -b /usr/local/bin
 ```
 
 #### Brew
@@ -73,4 +73,4 @@ pip3 install --quiet datasherlock
 -   [Sign up for a free Cloud account](https://datasherlocks.io/auth/sign-up)
 -   [Getting Started](https://datasherlocks.io/docs/getting-started)
 -   [Read the documentation](https://datasherlocks.io/docs)
--   [Discuss with the community](https://forum.datasherlocks.io)
+-   [Discuss with the community](https://github.com/orgs/datasherlocks/discussions)
