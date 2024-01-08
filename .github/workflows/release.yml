@@ -27,7 +27,9 @@ jobs:
         uses: sigstore/cosign-installer@6e04d228eb30da1757ee4e1dd75a0ec73a653e06 # v3.1.1
 
       - name: Set version
-        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+        run: |
+          echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+          sed -i "s/v0.0.1-develop/version: \"${GITHUB_REF#refs/*/}\"/g" "charts/sherlock/Chart.yaml"
 
       - name: Run chart-releaser
         uses: stefanprodan/helm-gh-pages@0ad2bb377311d61ac04ad9eb6f252fb68e207260 #v1.7.0
@@ -42,9 +44,8 @@ jobs:
       
       - name: Publish OCI Charts
         run: |
-          for dir in `find charts-tmp -maxdepth 1 -mindepth 1 -type d -print`; do
+          for dir in `find charts -maxdepth 1 -mindepth 1 -type d -print`; do
             chart=${dir##*/}
-            sed -i "s/v0.0.1-develop/version: \"${GITHUB_REF#refs/*/}\"/g" "charts/${chart}/Chart.yaml"
             echo "Found chart: ${chart}"
             helm package charts/${chart} --destination .dist
             helm push .dist/${chart}-*.tgz oci://ghcr.io/datasherlocks/${chart} |& tee .digest
