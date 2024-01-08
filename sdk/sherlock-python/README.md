@@ -1,5 +1,4 @@
-Sherlock
-==========================
+# Sherlock
 
 ## Requirements
 
@@ -14,7 +13,7 @@ pip install -r requirements.txt
 Testing is set up using [pytest](http://pytest.org) and coverage is handled
 with the pytest-cov plugin.
 
-Run your tests with ```py.test``` in the root directory.
+Run your tests with `py.test` in the root directory.
 
-Coverage is ran by default and is set in the ```pytest.ini``` file.
-To see an html output of coverage open ```htmlcov/index.html``` after running the tests.
+Coverage is ran by default and is set in the `pytest.ini` file.
+To see an html output of coverage open `htmlcov/index.html` after running the tests.

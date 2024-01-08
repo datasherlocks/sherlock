@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from cloud.agent.v1 import agent_pb2 as cloud_dot_agent_dot_v1_dot_agent__pb2
+from datasherlock.cloud.agent.v1 import agent_pb2 as cloud_dot_agent_dot_v1_dot_agent__pb2
 
 
 class AgentServiceStub(object):

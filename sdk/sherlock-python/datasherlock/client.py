@@ -1,6 +1,6 @@
 import grpc
-import cloud.agent.v1.agent_pb2 as proto
-import cloud.agent.v1.agent_pb2_grpc as proto_grpc
+import datasherlock.cloud.agent.v1.agent_pb2 as proto
+import datasherlock.cloud.agent.v1.agent_pb2_grpc as proto_grpc
 from typing import List, Optional, Dict, Union
 import pickle
 import json
