@@ -1,6 +1,6 @@
 import setuptools
 
-__version__ = "0.0.1"
+__version__ = "0.0.0+develop"
 
 setuptools.setup(name='datasherlock',
                  version=__version__,
