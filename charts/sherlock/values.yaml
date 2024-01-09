@@ -8,8 +8,8 @@ api_key: ""
 replicaCount: 1
 
 image:
-  repository: registry.datasherlocks.io/datasherlocks/sherlock
-  tag: "v0.0.1"
+  repository: ghcr.io/datasherlocks/sherlock
+  tag: "v0.0.11"
   pullPolicy: Always
 
 imagePullSecrets: []
@@ -24,10 +24,12 @@ serviceAccount:
   # If not set and create is true, a name is generated using the fullname template
   name: sherlock
 
-podSecurityContext: {}
+podSecurityContext:
+  {}
   # fsGroup: 2000
 
-securityContext: {}
+securityContext:
+  {}
   # privileged: true
   # capabilities:
   #   drop:
@@ -35,7 +37,6 @@ securityContext: {}
   # readOnlyRootFilesystem: true
   # runAsNonRoot: true
   # runAsUser: 1000
-
 
 probes:
   liveness:
@@ -57,16 +58,15 @@ config:
     port: 3306
     database: ""
 
-
 resources:
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-   limits:
+  limits:
     cpu: 500m
     memory: 256Mi
-   requests:
+  requests:
     cpu: 100m
     memory: 128Mi
 
@@ -77,4 +77,3 @@ tolerations: []
 affinity: {}
 
 deploymentAnnotations: {}
-
