@@ -30,7 +30,7 @@ jobs:
         run: |
           echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
           pip install pybump
-          pybump set --file charts/sherlock/Chart.yaml --set-version ${RELEASE_VERSION}
+          pybump set --file charts/sherlock/Chart.yaml --set-version ${GITHUB_REF#refs/*/}
           
       - name: Run chart-releaser
         uses: stefanprodan/helm-gh-pages@0ad2bb377311d61ac04ad9eb6f252fb68e207260 #v1.7.0
