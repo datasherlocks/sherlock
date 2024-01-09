@@ -1,7 +1,7 @@
 apiVersion: v2
 type: application
 name: sherlock
-version: v0.0.1-develop
+version: v0.0.1
 appVersion: v0.0.1
 description: Agent Helm chart for datasherlocks sherlock
 keywords:
