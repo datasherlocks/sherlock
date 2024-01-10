@@ -1,11 +1,11 @@
 from typing import Optional, List, Dict, Union, Any
 from datasherlock.database import DatabaseClient  # Import the updated DatabaseClient
-import datasherlock.client as client
+from datasherlock.request import DatasherlockCloudClient
 
 class DataSherlock:
     def __init__(self, token: str ,db_type: str, db_config: Dict[str, Union[str, int]]):
         self.db_client = DatabaseClient(db_type, db_config)  # Initialize DatabaseClient with db_type
-        self.cloud = client.DatasherlockCloudClient(bearer_token=token)
+        self.cloud = DatasherlockCloudClient(bearer_token=token)
         self.db_config = db_config
         self.db_type = db_type
 
