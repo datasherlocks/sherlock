@@ -59,6 +59,11 @@ spec:
                 secretKeyRef:
                   name: {{ include "sherlock.fullname" . }}
                   key: api_key
+            - name: CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "sherlock.fullname" . }}
+                  key: client_secret
           args:
             - serve
             - --config

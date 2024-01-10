@@ -4,7 +4,8 @@
 enableTunnelService: true
 tunnelToken: ""
 password: ""
-api_key: ""
+apiKey: ""
+clientSecret: ""
 replicaCount: 1
 
 image:
@@ -57,6 +58,10 @@ config:
     username: ""
     port: 3306
     database: ""
+  # oauth:
+  #   client_id: "client_id"
+  #   scopes: ["openid", "profile", "email"]
+  #   provider: "provider_url"
 
 resources:
   # We usually recommend not to specify default resources and to leave this as a conscious
