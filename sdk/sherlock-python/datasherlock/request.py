@@ -6,10 +6,11 @@ import pickle
 import json
 
 class DatasherlockCloudClient:
-    def __init__(self, host: str="127.0.0.1", port: int = 8081, bearer_token: str =""):
+    def __init__(self, host: str="api.ap-south-1.datasherlock.io", port: int = 443, bearer_token: str =""):
         self.host = host
         self.port = port
         self.bearer_token = bearer_token
+        self.metadata = [("authorization", "bearer " + self.bearer_token)]
 
     def _create_channel(self):  # Use SSL for secure communication
         return grpc.insecure_channel(f'{self.host}:{self.port}')
@@ -25,7 +26,7 @@ class DatasherlockCloudClient:
             sql=registration_data['sql']
         )
 
-        response = stub.Ask(request)
+        response = stub.Ask(request, metadata=self.metadata)
         return response.sql
 
     def list_agent(self, registration_data: Dict[str, Union[str, List[str], bytes, None]]) -> str:
@@ -35,7 +36,7 @@ class DatasherlockCloudClient:
         request = proto.ListAgentRequest(
         )
 
-        response = stub.List(request)
+        response = stub.List(request, metadata=self.metadata)
         return response
 
     def register_agent(self, registration_data: Dict[str, Union[str, List[str], bytes, None]]) -> Dict[str, Union[int, str]]:
@@ -58,7 +59,7 @@ class DatasherlockCloudClient:
 
 
         try:
-            response = stub.Register(request)
+            response = stub.Register(request,  metadata=self.metadata)
             if response.agent_id > 0:
               return {
                   'agent_id': response.agent_id,

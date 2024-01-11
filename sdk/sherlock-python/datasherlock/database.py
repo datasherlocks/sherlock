@@ -58,15 +58,15 @@ class DatabaseClient:
     def get_platform_check(self) -> str:
         message = ""
         if self.tables > 15:
-            message =+ "You want to query more than 10 tables in total...\n"
+            message = message + "You want to query more than 10 tables in total...\n"
 
         if self.tot_columns > 150:
-            message =+ "You want to query more than 200 columns in total...\n"
+            message = message + "You want to query more than 200 columns in total...\n"
 
         if self.json_columns > 1:
-            message =+ "There are 1 or more columns with the JSON type...\n"
+            message = message + "There are 1 or more columns with the JSON type...\n"
         else:
-            message =+ "we can support your use-case!"
+            message = message + "we can support your use-case!"
 
         return message
 
