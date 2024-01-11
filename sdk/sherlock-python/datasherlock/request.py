@@ -4,11 +4,13 @@ import datasherlock.cloud.agent.v1.agent_pb2_grpc as proto_grpc
 from typing import List, Optional, Dict, Union
 import pickle
 import json
+import os
 
 class DatasherlockCloudClient:
     def __init__(self, host: str="api.ap-south-1.datasherlock.io", port: int = 443, bearer_token: str =""):
-        self.host = host
-        self.port = port
+            
+        self.host = os.environ.get("DS_HOST_URL") or host
+        self.port = int(os.environ.get("DS_HOST_PORT")) or port
         self.bearer_token = bearer_token
         self.metadata = [("authorization", "bearer " + self.bearer_token)]
 

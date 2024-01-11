@@ -1,0 +1,28 @@
+{
+  "name": "datasherlock-components-example",
+  "homepage": ".",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "datasherlock-components": "file:../",
+    "react": "file:../node_modules/react",
+    "react-dom": "file:../node_modules/react-dom"
+  },
+  "devDependencies": {
+    "@babel/plugin-syntax-object-rest-spread": "^7.8.3",
+    "vite": "^4.4.4"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
