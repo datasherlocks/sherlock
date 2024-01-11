@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  sherlock:
+    image: ghcr.io/datasherlocks/sherlock:v0.0.15
+    command: serve --config /src/config.yaml
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ./config.yaml:/src/config.yaml
+
+  tunnel:
+    image: cloudflare/cloudflared:2022.6.3
+    restart: always
+    command: ["tunnel", "--no-autoupdate", "--loglevel", "debug", "run", "--token", "$(TUNNEL_TOKEN)"]
+    env_file:
+      - .env

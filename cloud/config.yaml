@@ -1,0 +1,12 @@
+# oauth:
+#   client_id: "client-id"
+#   scopes: ["openid", "profile", "email"]
+#   provider: "https://accounts.google.com"
+type: "mysql"
+database:
+  host: "127.0.01"
+  username: "root"
+  port: 3306
+  database: "employees"
+  debug: false
+  ssl: true
