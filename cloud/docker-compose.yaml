@@ -7,12 +7,26 @@ services:
     restart: always
     env_file:
       - .env
+    expose:
+      - 8080
+    ports:
+      - '8080:8080'
     volumes:
       - ./config.yaml:/src/config.yaml
+    networks:
+      - proxynet
 
   tunnel:
     image: cloudflare/cloudflared:2022.6.3
     restart: always
-    command: ["tunnel", "--no-autoupdate", "--loglevel", "debug", "run", "--token", "$(TUNNEL_TOKEN)"]
+    links: 
+      - sherlock
+    command: ["tunnel", "--no-autoupdate", "--loglevel", "debug", "run", "--token", "$TUNNEL_TOKEN", "--url", "http://sherlock:8080"]
     env_file:
       - .env
+    networks:
+      - proxynet
+
+networks:
+  proxynet:
+    driver: bridge
