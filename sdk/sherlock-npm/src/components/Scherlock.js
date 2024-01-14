@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import {isEmpty} from 'lodash'
+import { isEmpty } from "lodash";
 
+import api from "../services/apiService";
 import { themes, MultipleTabs } from "./constants";
 
 import { ThemeProvider } from "styled-components";
@@ -10,7 +11,7 @@ import Input from "../common/RecomendedInput/index.tsx";
 import { ButtonFilled } from "../common/Button/index.tsx";
 import MultipleTabComponent from "../common/MultipleTabView/index.tsx";
 import CodeBlocks from "../common/CodeBlock/index.tsx";
-import TableView from '../common/Table/index.tsx'
+import TableView from "../common/Table/index.tsx";
 
 const Scherlock = (props) => {
   const [theme, setTheme] = useState(themes.light);
@@ -19,6 +20,21 @@ const Scherlock = (props) => {
   const [dataSet, setDataSet] = useState({});
   const [tabelHeader, setTableHeader] = useState([]);
   const [selectedTab, setSelectedTab] = useState({});
+
+  /////////////////////
+  //api call example
+  useEffect(() => {
+    // Fetch data when the component mounts
+    api
+      .getUsers()
+      .then((response) => {
+        console.log("here----", response);
+      })
+      .catch((error) => {
+        console.error("Error fetching users:", error);
+      });
+  }, []);
+  ////////////////////
 
   const onButtonClick = () => {
     const setData = {
@@ -104,18 +120,24 @@ const Scherlock = (props) => {
           <ButtonFilled label="Ask" onClick={onButtonClick} />
         </div>
         <Sizebox height={"20px"} />
-        {!isEmpty(selectedTab) && <MultipleTabComponent
-          options={MultipleTabs}
-          onClick={onTabClick}
-          selected={selectedTab}
-        /> }
+        {!isEmpty(selectedTab) && (
+          <MultipleTabComponent
+            options={MultipleTabs}
+            onClick={onTabClick}
+            selected={selectedTab}
+          />
+        )}
         <CodeBlocks
           show={selectedTab?.value === "sql-query"}
           code={dataSet?.sql}
           language={"sql"}
           showLineNumbers={true}
         />
-        <TableView show = {selectedTab?.value === 'tabel'} headers = {tabelHeader} data = {dataSet?.data} />
+        <TableView
+          show={selectedTab?.value === "tabel"}
+          headers={tabelHeader}
+          data={dataSet?.data}
+        />
       </Wrapper>
     </ThemeProvider>
   );

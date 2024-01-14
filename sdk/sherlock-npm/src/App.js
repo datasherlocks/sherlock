@@ -1,9 +1,7 @@
-import Scherlock from './components/Scherlock';
+import Scherlock from "./components/Scherlock";
 
 function App() {
-  return (
-    <Scherlock />
-  );
+  return <Scherlock />;
 }
 
 export default App;

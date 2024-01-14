@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  ThemeContext,
-  lightThemeColor,
-} from "./context/ThemeContext";
+import { ThemeContext, lightThemeColor } from "./context/ThemeContext";
 import { styled } from "styled-components";
 import Scherlock from "./components/Scherlock";
 
@@ -15,10 +12,7 @@ export const DatasherlockAgent = ({
     <ThemeContext.Provider
       value={{ theme: { type: "light", config: lightThemeColor } }}
     >
-      <Scherlock
-        apiKey={apiKey}
-        agentID={agentID}
-      />
+      <Scherlock apiKey={apiKey} agentID={agentID} />
     </ThemeContext.Provider>
   );
 };
