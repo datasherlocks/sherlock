@@ -5,7 +5,7 @@ enableTunnelService: true
 tunnelToken: ""
 password: ""
 apiKey: ""
-clientSecret: ""
+clientSecret: "test"
 replicaCount: 1
 
 image:
