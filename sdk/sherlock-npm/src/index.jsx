@@ -4,7 +4,7 @@ import {
   lightThemeColor,
 } from "./context/ThemeContext";
 import { styled } from "styled-components";
-import Agent from "./components/agents/Agent";
+import Scherlock from "./components/Scherlock";
 
 export const DatasherlockAgent = ({
   remoteURL = "http://127.0.0.1:8080",
@@ -15,8 +15,7 @@ export const DatasherlockAgent = ({
     <ThemeContext.Provider
       value={{ theme: { type: "light", config: lightThemeColor } }}
     >
-      <Agent
-        remoteURL={remoteURL}
+      <Scherlock
         apiKey={apiKey}
         agentID={agentID}
       />

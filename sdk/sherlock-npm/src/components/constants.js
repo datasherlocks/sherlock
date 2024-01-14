@@ -29,9 +29,5 @@ export const MultipleTabs = [
     {
         label: 'Chart',
         value: 'chart'
-    },
-    {
-        label: 'SQL Query',
-        value: 'sql-query'
     }
 ]

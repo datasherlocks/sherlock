@@ -96,9 +96,7 @@ class DatabaseClient:
             cursor.execute(query)
             tables = [row[0] for row in cursor.fetchall()]
         self.tables = len(tables)
-        print("Retrieved the following tables:")
-        for t in tables:
-            print(f"\t{t}")
+
         return tables
 
     def generate_snowflake_schema(self, tables: List[str]) -> Dict[str, List[Dict[str, str]]]:
@@ -171,9 +169,7 @@ class DatabaseClient:
                 "SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';"
             )
             tables = [row[0] for row in cur.fetchall()]
-        print("Retrieved the following tables:")
-        for t in tables:
-            print(f"\t{t}")
+
 
         print("Getting schema for each table in your database...")
         # get the schema for each table

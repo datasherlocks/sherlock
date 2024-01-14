@@ -1,6 +1,9 @@
 from typing import Optional, List, Dict, Union, Any
 from datasherlock.database import DatabaseClient  # Import the updated DatabaseClient
 from datasherlock.request import DatasherlockCloudClient
+from tabulate import tabulate
+import pandas as pd
+import json
 
 class DataSherlock:
     def __init__(self, token: str ,db_type: str, db_config: Dict[str, Union[str, int]]):
@@ -26,14 +29,33 @@ class DataSherlock:
     def list(self) -> Dict[str, Any]:
         request = {
         }
-        return  self.cloud.list_agent(registration_data=request)
+        result = self.cloud.list_agent(registration_data=request)
+        response = []
+        for data in result.data:
+            response.append({
+                "id": data.id,
+                "name": data.name,
+                "url": data.url,
+                "type": data.type,  
+                "host": data.host,
+            })
+  
+        print(tabulate(response, headers = 'keys', tablefmt = 'psql'))
+        return 
+    
 
     def register(self, name: str) -> Dict[str, Any]:
 
         data = self.db_client.generate_schema()
 
         print(self.db_client.get_platform_check())
-
+        schemas = []
+        for key,val in data.items():
+            schema = {
+                "name": key,
+                "data": str(val)
+            }
+            schemas.append(schema)
         request = {
             'name': name,
             'host': self.db_config["host"],
@@ -41,7 +63,14 @@ class DataSherlock:
             'username': self.db_config["user"],
             'type': self.db_type,
             'tables': [],
-            'schema': data["schema"]
+            'schema': schemas
         }
-
-        return self.cloud.register_agent(registration_data=request)
+        result = self.cloud.register_agent(registration_data=request)
+       
+        print(tabulate([{
+                "id": result["agent_id"],
+                "url": result["url"],
+                "token": result["token"],
+                
+             }], headers = 'keys', tablefmt = 'psql'))
+        return 
