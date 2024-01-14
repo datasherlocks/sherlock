@@ -1,25 +1,21 @@
 // apiService.js
-import axios from "axios";
+import AgentService from "../cloud/agent/v1/agent_connect";
+import { createPromiseClient } from "@connectrpc/connect";
+import { createConnectTransport } from "@connectrpc/connect-web";
 
-const API_BASE_URL = "https://reqres.in/api"; // Replace with your API base URL
+const API_BASE_URL = "https://api.ap-south-1.datasherlock.io"; // Replace with your API base URL
+const HEADERS = {"Authorization": "bearer KEYS"}
 
-const apiService = axios.create({
-  baseURL: API_BASE_URL,
-  headers: {
-    "Content-Type": "application/json",
-  },
-});
+const agentClient = createPromiseClient(
+    AgentService,
+    createConnectTransport({
+        baseUrl: API_BASE_URL,
+    })
+);
 
-// Define your API endpoints here
-const endpoints = {
-  getUsers: "/users?page=2",
-  // Add more endpoints as needed
-};
 
-// Create functions to make API requests
 const api = {
-  getUsers: () => apiService.get(endpoints.getUsers),
-  // Add more functions for other endpoints
+  getAgentList: (body) =>  agentClient.list(body, {headers: HEADERS}),
 };
 
 export default api;
