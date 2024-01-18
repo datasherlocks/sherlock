@@ -29,7 +29,7 @@ setup(name='datasherlock',
                  url='http://datasherlock.io',
                  py_modules=['datasherlock'],
                  install_requires=[
-                    "grpcio==1.50.0",
+                    "grpcio==1.53.0",
                     "grpcio-tools==1.50.0",
                     "protobuf==4.21.9",
                     "pandas",
