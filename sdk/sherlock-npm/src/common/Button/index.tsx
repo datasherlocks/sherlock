@@ -1,13 +1,8 @@
-import React from 'react'
-import {buttonInterface} from '../../interface/common/button'
+import React from "react";
+import { buttonInterface } from "../../interface/common/button";
+import { Wrapper } from "./styles";
 
-import {FilledWrapper} from './styles.tsx'
-
-export const ButtonFilled = (props:buttonInterface) => {
-    const {label, onClick} = props
-    return(
-        <FilledWrapper onClick={onClick} >
-            {label}
-        </FilledWrapper>
-    )
-}
+export const ButtonFilled = (props: buttonInterface) => {
+  const { label, onClick } = props;
+  return <Wrapper onClick={onClick}>{label}</Wrapper>;
+};

@@ -1,23 +1,22 @@
 import React from "react";
 
-import { TableWrapper } from "./styles.tsx";
+import { TableWrapper } from "./styles";
 
 const TableView = (props) => {
   const { show, headers, data } = props;
 
-  if (!show) return true;
+  if (!show) return null;
+
   return (
     <TableWrapper>
       <thead>
-        {headers?.map((item: string) => (
-          <th>{item}</th>
-        ))}
+        <tr>{headers?.map((item: string) => <th key={item}>{item}</th>)}</tr>
       </thead>
       <tbody>
-        {data?.map((item: any) => (
-          <tr>
-            {Object.keys(item)?.map((key: string) => (
-              <td>{item?.[key]}</td>
+        {data?.map((item: any, index: number) => (
+          <tr key={index}>
+            {Object.keys(item)?.map((key: string, i: number) => (
+              <td key={i}>{item?.[key]}</td>
             ))}
           </tr>
         ))}

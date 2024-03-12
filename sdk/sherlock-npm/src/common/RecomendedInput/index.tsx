@@ -1,47 +1,81 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import {
-  inputProps,
-  availableOptions,
-} from "../../interface/common/input";
-// import {FaChevronDown} from 'react-icons/fa/index'
-import { Wrapper } from "./styles.tsx";
+  Wrapper,
+  StyledTextFieldRoot,
+  StyledTextFieldInput,
+  StyledTextFieldSlot,
+  OptionsContainer,
+  OptionsList,
+  IndividualItem,
+} from "./styles";
+import { inputProps, availableOptions } from "../../interface/common/input";
+import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 
-const Dropdown = (props: inputProps) => {
-  const { onChange, options = [], label, value } = props;
+const Dropdown = ({ onChange, options = [], label, value }: inputProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isInputFocused, setIsInputFocused] = useState(false);
+  const [filteredOptions, setFilteredOptions] = useState([]);
 
-  const [isOpen, setIsOpen] = useState(false)
+
+  const handleInputFocus = () => {
+    setIsOpen(true);
+  };
+
+  const handleInputBlue = () => {
+    setTimeout(() => {
+      setIsOpen(false);
+    }, "1000");
+    
+  };
+
 
   const onOptionClick = (individualOption: availableOptions) => {
-    onChange(individualOption)
-    setIsOpen(pre => !pre)
-  }
+
+    onChange(individualOption);
+    setIsOpen(false);
+  };
+
+  const handleInputChange = (e: any) => {
+    
+    onChange({
+      question: e.target.value,
+      query: "",
+    });
+  };
+
   return (
     <Wrapper>
-      <div className="main-container">
-        <div className="values-container">
-          <span className={`label-str ${value?.question ? 'on-top':''}`}>{label}</span>
-          {/* {value?.value && <span className="value-section" >{value?.value}</span>} */}
-          <input 
-            onFocus={() => setIsOpen(options?.length > 0 ? true : false)}
-            className="value-selected"
-            value={value?.question}
-            onChange = {(e) => onChange(e?.target?.value)}
-          />
-        </div>
-        {/* <FaChevronDown className="down-arrow" /> */}
-      </div>
-      {
-        isOpen && 
-        <div className="options-list">
-          {
-            options?.map((individualOption: availableOptions) => (
-              <div className={`individual-item ${individualOption.question === value?.question ? 'selected-option':''}`} key={individualOption?.question} onClick={()=> onOptionClick(individualOption)}>
-                {individualOption?.question}
-              </div>
-            ))
-          }
-        </div>
-      }
+      <StyledTextFieldRoot>
+        <StyledTextFieldSlot>
+          <MagnifyingGlassIcon height="17" width="17" />
+        </StyledTextFieldSlot>
+        <StyledTextFieldInput
+          placeholder={label}
+          value={value}
+          onFocus={handleInputFocus}
+          onBlur={handleInputBlue}
+          onChange={handleInputChange}
+        />
+      </StyledTextFieldRoot>
+      {isOpen && (
+        <OptionsContainer>
+          <OptionsList>
+            {options.map((individualOption: availableOptions) => (
+              <IndividualItem
+                className={`individual-item ${
+                  individualOption.question === value?.question
+                    ? "selected-option"
+                    : ""
+                }`}
+                key={individualOption.question}
+                onClick={() => {onOptionClick(individualOption)}}
+              >
+                {individualOption.question}
+              </IndividualItem>
+            ))}
+          </OptionsList>
+        </OptionsContainer>
+      )}
     </Wrapper>
   );
 };

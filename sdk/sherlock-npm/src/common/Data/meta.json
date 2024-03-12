@@ -1,0 +1,10 @@
+{
+    "sql": "selectedQuestion.query",
+    "meta_information": {
+      "database": "employees",
+      "host": "aws.connect.psdb.cloud",
+      "type": "mysql",
+      "username": "gfl9dlnqoyx1bb6849k6"
+    }
+  }
+  

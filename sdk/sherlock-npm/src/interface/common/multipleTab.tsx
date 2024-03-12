@@ -9,4 +9,5 @@ export interface multipleTabProp{
     primaryColor?: string
     secondaryColor?: string,
     selected: tabData
+    queryResult: any
 }
