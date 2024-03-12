@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 services:
   sherlock:
@@ -10,7 +10,7 @@ services:
     expose:
       - 8080
     ports:
-      - '8080:8080'
+      - "8080:8080"
     volumes:
       - ./config.yaml:/src/config.yaml
     networks:
@@ -19,9 +19,20 @@ services:
   tunnel:
     image: cloudflare/cloudflared:2022.6.3
     restart: always
-    links: 
+    links:
       - sherlock
-    command: ["tunnel", "--no-autoupdate", "--loglevel", "debug", "run", "--token", "$TUNNEL_TOKEN", "--url", "http://sherlock:8080"]
+    command:
+      [
+        "tunnel",
+        "--no-autoupdate",
+        "--loglevel",
+        "debug",
+        "run",
+        "--token",
+        "$TUNNEL_TOKEN",
+        "--url",
+        "http://sherlock:8080",
+      ]
     env_file:
       - .env
     networks:
