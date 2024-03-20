@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { AskAgentRequest, AskAgentResponse, CreateGlossaryRequest, CreateGlossaryResponse, DeployBranchAgentRequest, DeployBranchAgentResponse, HistoryAgentRequest, HistoryAgentResponse, ListAgentRequest, ListAgentResponse, ListBranchAgentRequest, ListBranchAgentResponse, ListGlossaryRequest, ListGlossaryResponse, QueryAgentRequest, QueryAgentResponse, RegisterAgentRequest, RegisterAgentResponse } from "./agent_pb.js";
+import { AskAgentRequest, AskAgentResponse, CreateGlossaryRequest, CreateGlossaryResponse, DeployAgentRequest, DeployAgentResponse, DestroyAgentRequest, DestroyAgentResponse, HistoryAgentRequest, HistoryAgentResponse, ListAgentRequest, ListAgentResponse, ListGlossaryRequest, ListGlossaryResponse, QueryAgentRequest, QueryAgentResponse, RegisterAgentRequest, RegisterAgentResponse } from "./agent_pb.js";
 import { MethodKind } from "@bufbuild/protobuf";
 
 /**
@@ -70,25 +70,23 @@ export const AgentService = {
       kind: MethodKind.Unary,
     },
     /**
-     * API call will return history of agent
+     * API call will return deployment of agent
      *
-     * @generated from rpc cloud.agent.v1.AgentService.DeployBranch
+     * @generated from rpc cloud.agent.v1.AgentService.Deploy
      */
-    deployBranch: {
-      name: "DeployBranch",
-      I: DeployBranchAgentRequest,
-      O: DeployBranchAgentResponse,
+    deploy: {
+      name: "Deploy",
+      I: DeployAgentRequest,
+      O: DeployAgentResponse,
       kind: MethodKind.Unary,
     },
     /**
-     * API call will return history of agent
-     *
-     * @generated from rpc cloud.agent.v1.AgentService.ListBranch
+     * @generated from rpc cloud.agent.v1.AgentService.Destroy
      */
-    listBranch: {
-      name: "ListBranch",
-      I: ListBranchAgentRequest,
-      O: ListBranchAgentResponse,
+    destroy: {
+      name: "Destroy",
+      I: DestroyAgentRequest,
+      O: DestroyAgentResponse,
       kind: MethodKind.Unary,
     },
   }

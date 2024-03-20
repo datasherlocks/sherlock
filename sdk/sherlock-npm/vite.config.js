@@ -8,7 +8,7 @@ export default defineConfig({
   build: {
     lib: {
       // Could also be a dictionary or array of multiple entry points
-      entry: resolve(__dirname, "src/index.jsx"),
+      entry: resolve(__dirname, "src/index.tsx"),
       name: "@datasherlock/sherlock",
       fileName: "index",
     },

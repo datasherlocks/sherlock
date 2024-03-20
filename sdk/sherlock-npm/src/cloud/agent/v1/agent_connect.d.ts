@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { AskAgentRequest, AskAgentResponse, CreateGlossaryRequest, CreateGlossaryResponse, DeployBranchAgentRequest, DeployBranchAgentResponse, HistoryAgentRequest, HistoryAgentResponse, ListAgentRequest, ListAgentResponse, ListBranchAgentRequest, ListBranchAgentResponse, ListGlossaryRequest, ListGlossaryResponse, QueryAgentRequest, QueryAgentResponse, RegisterAgentRequest, RegisterAgentResponse } from "./agent_pb.js";
+import { AskAgentRequest, AskAgentResponse, CreateGlossaryRequest, CreateGlossaryResponse, DeployAgentRequest, DeployAgentResponse, DestroyAgentRequest, DestroyAgentResponse, HistoryAgentRequest, HistoryAgentResponse, ListAgentRequest, ListAgentResponse, ListGlossaryRequest, ListGlossaryResponse, QueryAgentRequest, QueryAgentResponse, RegisterAgentRequest, RegisterAgentResponse } from "./agent_pb.js";
 import { MethodKind } from "@bufbuild/protobuf";
 
 /**
@@ -70,25 +70,23 @@ export declare const AgentService: {
       readonly kind: MethodKind.Unary,
     },
     /**
-     * API call will return history of agent
+     * API call will return deployment of agent
      *
-     * @generated from rpc cloud.agent.v1.AgentService.DeployBranch
+     * @generated from rpc cloud.agent.v1.AgentService.Deploy
      */
-    readonly deployBranch: {
-      readonly name: "DeployBranch",
-      readonly I: typeof DeployBranchAgentRequest,
-      readonly O: typeof DeployBranchAgentResponse,
+    readonly deploy: {
+      readonly name: "Deploy",
+      readonly I: typeof DeployAgentRequest,
+      readonly O: typeof DeployAgentResponse,
       readonly kind: MethodKind.Unary,
     },
     /**
-     * API call will return history of agent
-     *
-     * @generated from rpc cloud.agent.v1.AgentService.ListBranch
+     * @generated from rpc cloud.agent.v1.AgentService.Destroy
      */
-    readonly listBranch: {
-      readonly name: "ListBranch",
-      readonly I: typeof ListBranchAgentRequest,
-      readonly O: typeof ListBranchAgentResponse,
+    readonly destroy: {
+      readonly name: "Destroy",
+      readonly I: typeof DestroyAgentRequest,
+      readonly O: typeof DestroyAgentResponse,
       readonly kind: MethodKind.Unary,
     },
   }

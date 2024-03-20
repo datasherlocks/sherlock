@@ -1,10 +1,10 @@
 import json
 import os
 
-import datasherlock.client.agent.v1.agent_connect as agent_connect_client
-import datasherlock.client.agent.v1.agent_pb2 as agent_pb2_client
-import datasherlock.cloud.agent.v1.agent_connect as agent_connect
-import datasherlock.cloud.agent.v1.agent_pb2 as agent_pb2
+import client.agent.v1.agent_connect as agent_connect_client
+import client.agent.v1.agent_pb2 as agent_pb2_client
+import cloud.agent.v1.agent_connect as agent_connect
+import cloud.agent.v1.agent_pb2 as agent_pb2
 import grpc
 from typing import Dict, List, Optional, Union
 
@@ -67,20 +67,20 @@ class DatasherlockCloudClient:
 
     def __init__(
         self,
-        host: str = "api.ap-south-1.datasherlock.io",
-        port: int = 443,
+        host: str = "https://api.ap-south-1.datasherlock.io",
         bearer_token: str = "",
     ):
         """
         Initialize DatasherlockCloudClient.
         Args:
-            host (str, optional): Datasherlock Cloud host. Defaults to "api.ap-south-1.datasherlock.io".
-            port (int, optional): Port for communication. Defaults to 443.
+            host (str, optional): Datasherlock Cloud host. Defaults to "https://api.ap-south-1.datasherlock.io".
             bearer_token (str, optional): Bearer token for authentication. Defaults to "".
         """
+        
         self.host = os.environ.get("DS_HOST_URL") or host
+        print(self.host)
         self.bearer_token = bearer_token
-        self.metadata = {"Authorization": "Bearer " + self.bearer_token}
+        self.metadata = {"Authorization": "bearer " + self.bearer_token}
 
     def _create_channel(self) -> agent_connect.AgentServiceClient:
         """
@@ -104,7 +104,7 @@ class DatasherlockCloudClient:
             str: Response from Datasherlock Agent in the cloud.
         """
         client = self._create_channel()
-        request = agent_pb2.AskAgentRequest(question=registration_data["question"])
+        request = agent_pb2.AskAgentRequest(question=registration_data["question"], host=registration_data["host"])
 
         response = client.ask(request)
         return response

@@ -61,5 +61,6 @@ export const TabContent = styled(Tabs.Content, {
 });
 
 export const Tables = styled(ReactDataGrid, {
-  borderRadius: "8px",
+  borderRadius: "5px",
+  border: "1px solid black",
 });

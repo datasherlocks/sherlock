@@ -1,9 +1,12 @@
 {
   "name": "datasherlock",
-  "version": "0.0.1",
+  "version": "0.0.13",
   "dependencies": {
     "@babel/core": "^7.24.0",
     "@codemirror/lang-sql": "^6.6.1",
+    "@connectrpc/connect": "^1.4.0",
+    "@connectrpc/connect-web": "^1.4.0",
+    "@expo/webpack-config": "^19.0.1",
     "@radix-ui/colors": "^3.0.0-rc.4",
     "@radix-ui/react-form": "^0.0.3",
     "@radix-ui/react-icons": "^1.3.0",
@@ -25,12 +28,15 @@
     "chart.js": "^4.4.1",
     "classnames": "^2.3.2",
     "dotenv-expand": "^11.0.6",
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.8.2",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-code-blocks": "^0.1.4",
     "react-data-grid": "^7.0.0-beta.41",
     "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1",
     "react-icons": "^4.11.0",
     "react-lottie": "^1.2.3",
     "react-scripts": "5.0.1",
@@ -45,11 +51,9 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.22.7",
-    "@babel/eslint-plugin": "^7.22.5",
-    "@babel/preset-env": "^7.22.7",
-    "@babel/preset-react": "^7.23.3",
     "@types/react": "^18.2.22",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
     "cross-env": "^7.0.3",
     "eslint-config-prettier": "^8.8.0",
     "eslint-config-react-app": "^7.0.1",
@@ -68,7 +72,7 @@
     "tailwindcss": "^3.4.1"
   },
   "private": false,
-  "module": "src/index.jsx",
+  "module": "src/index.tsx",
   "browserslist": {
     "production": [
       ">0.2%",

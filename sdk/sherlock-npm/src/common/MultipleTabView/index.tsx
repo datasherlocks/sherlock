@@ -66,12 +66,16 @@ const MultipleTab = (props: multipleTabProp) => {
                       style={{ marginRight: "10px", display: "inline-block" }}
                     >
                       <ButtonFilled
+                        backgroundColor="#d5d5d5"
+                        textColor="black"
                         label="Export to CSV"
                         onClick={() => handleExport("csv")}
                       />
                     </div>
                     <div style={{ display: "inline-block" }}>
                       <ButtonFilled
+                        backgroundColor="#d5d5d5"
+                        textColor="black"
                         label="Export to PDF"
                         onClick={() => handleExport("pdf")}
                       />

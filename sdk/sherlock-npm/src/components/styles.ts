@@ -24,7 +24,7 @@ export const Wrapper = styled.div<{ theme: Theme }>`
   border: 1px solid ${(props) => props.theme.colors.borderColor};
   padding: 10px;
   border-radius: 8px;
-
+  
   .buttonContainer {
     padding: 10px 0 0 0;
     display: flex;
